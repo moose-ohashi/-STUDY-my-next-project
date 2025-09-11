@@ -23,7 +23,7 @@ export default async function Page() {
               />
               <dl>
                 <dt className={styles.name}>{member.name}</dt>
-                <dt className={styles.postion}>{member.postion}</dt>
+                <dt className={styles.postion}>{member.position}</dt>
                 <dt className={styles.profile}>{member.profile}</dt>
               </dl>
             </li>
