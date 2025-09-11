@@ -5,10 +5,9 @@ import { News } from "@/app/_libs/microcms";
 import Category from "../Category";
 import Date from "../Date";
 
-
 type Props = {
   news: News[];
-}
+};
 
 export default function NewsList({ news }: Props) {
   if (news.length === 0) {
@@ -19,13 +18,23 @@ export default function NewsList({ news }: Props) {
       {news.map((article) => (
         <li key={article.id} className={styles.list}>
           <Link href={`/news/${article.id}`} className={styles.link}>
-            <Image
-              className={styles.image}
-              src="/no-image.png"
-              alt="No Image"
-              width={1200}
-              height={630}
-            />
+            {article.thumbnail ? (
+              <Image
+                src={article.thumbnail.url}
+                alt=""
+                className={styles.image}
+                width={article.thumbnail.width}
+                height={article.thumbnail.height}
+              />
+            ) : (
+              <Image
+                className={styles.image}
+                src="/no-image.png"
+                alt="no image"
+                width={1200}
+                height={600}
+              />
+            )}
             <dl className={styles.contents}>
               <dt className={styles.title}>{article.title}</dt>
               <dd className={styles.meta}>
